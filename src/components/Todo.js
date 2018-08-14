@@ -8,8 +8,8 @@ class Todo extends Component{
         super()
         this.state = {
             todo:[{
-                name: 'Wash Dishes',
-                info: 'Wash Dishes'
+                name: 'Clean House',
+                info: 'Living room, Kitchen'
             }]
             
         }
