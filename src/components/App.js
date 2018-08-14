@@ -7,6 +7,7 @@ import {
   Switch
 } from 'react-router-dom'
 import Todo from './Todo'
+import Create from './Create'
 import './App.css'
 
 class App extends Component {
@@ -16,7 +17,7 @@ class App extends Component {
       <Router>
         <div>
           <nav>
-            <h1>To Do List</h1>
+            <h1>List</h1>
             <Link to="/list">To do List</Link>
           </nav>
           <main>
@@ -25,6 +26,10 @@ class App extends Component {
                 path="/list"
                 component={Todo}
                 />
+              <Route
+                path="/create"
+                component={Create}
+              />
             </Switch>
           </main>
         </div>

@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {
+    Link
+  } from 'react-router-dom'
 
 class Todo extends Component{
     constructor(){
@@ -16,10 +19,13 @@ class Todo extends Component{
             <div>
                 {this.state.todo.map((item, i) =>
             <div key={i}>
-                <h3>{this.state.todo.name}</h3>
-                <p>{this.state.todo.info}</p>
+                <h3>{item.name}</h3>
+                <p>{item.info}</p>
             </div>
                 )}
+                <Link to="/create">
+                    <button type="submit">New To do</button>
+                </Link>
             </div>
         )
     }
