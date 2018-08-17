@@ -3,11 +3,9 @@ import {
   BrowserRouter as Router,
   Link,
   Route,
-  Redirect,
   Switch
 } from 'react-router-dom'
 import Todo from './Todo'
-import Create from './Create'
 import './App.css'
 
 class App extends Component {
@@ -23,13 +21,9 @@ class App extends Component {
           <main>
             <Switch>
               <Route
-                path="/list"
+                exact path="/list"
                 component={Todo}
                 />
-              <Route
-                path="/create"
-                component={Create}
-              />
             </Switch>
           </main>
         </div>

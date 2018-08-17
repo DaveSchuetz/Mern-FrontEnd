@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
-import {
-    Link
-  } from 'react-router-dom'
+import axios from 'axios'
+import {removeTodo} from '../actions/todo'
 
 class Todo extends Component{
     constructor(){
         super()
         this.state = {
-            todo:[{
-                name: 'Clean House',
-                info: 'Living room, Kitchen'
-            }]
+            todo:[]
             
         }
+    }
+    componentDidMount(){
+        axios.get('http://localhost:3001/list')
+        .then((res) =>{
+            console.log(res)
+            this.setState({
+                todo: res.data
+            })
+        })
     }
     render(){
         return(
@@ -21,15 +26,17 @@ class Todo extends Component{
             <div key={i}>
                 <h3>{item.name}</h3>
                 <p>{item.info}</p>
+                <input type='checkbox' />Complete<br />
+                <button>Delete</button>
             </div>
                 )}
-                <Link to="/create">
-                    <button type="submit">New To do</button>
-                </Link>
             </div>
         )
     }
 
 }
 
+const mapDispatchToProps = dispatch => ({
+    onRemove: id => dispatch(removeTodo(id))
+})
 export default Todo
